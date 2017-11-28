@@ -1,5 +1,9 @@
 @extends ('layout.master')
 
 @section ('content')
-  <h1>A place to show the post</h1>
+  <div>
+    <h1>{{ $post->title }}</h1>
+  
+    {{ $post->body }}
+  </div>
 @endsection
