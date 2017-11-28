@@ -11,26 +11,30 @@
 |
 */
 
-Route::get('/', function () {
-  return view('welcome');
-});
+Route::get('/', 'PostsController@index');
+
+Route::get('/posts/{post}', 'PostsController@show');
 
 Route::get('/about', function () {
   return view('about');
 });
 
-Route::get('/tasks', function () {
-  // $tasks = DB::table('tasks')->get();
+// Route::get('/tasks', function () {
+//   // $tasks = DB::table('tasks')->get();
 
-  $tasks = App\Task::all();
+//   $tasks = App\Task::all();
   
-  return view('tasks.index', compact('tasks'));
-});
+//   return view('tasks.index', compact('tasks'));
+// });
 
-Route::get('/tasks/{id}', function($id){
-  // $task = DB::table('tasks')->find($id);
+// Route::get('/tasks/{id}', function($id){
+//   // $task = DB::table('tasks')->find($id);
 
-  $task = App\Task::find($id);
+//   $task = App\Task::find($id);
   
-  return view('tasks.show', compact('task'));
-});
+//   return view('tasks.show', compact('task'));
+// });
+
+Route::get('/tasks', 'TasksController@index');
+
+Route::get('/tasks/{task}', 'TasksController@show');
