@@ -3,7 +3,7 @@
 @section ('content')
 
   <div class="col-sm-8">
-    <h1>register</h1>
+    <h1>Register</h1>
 
     <form method="POST" action="/register">
       {{ csrf_field() }}
@@ -24,8 +24,16 @@
       </div>
 
       <div class="form-group">
+        <label for="password_confirmation">Password Confirmation</label>
+        <input type="password" class="form-control" id="password_confirmation" name="password_confirmation" required>
+      </div>
+
+      <div class="form-group">
         <button type="submit" class="form-control" id="title">Register</button>
       </div>
+
+      @include ('layout.errors')
+      
     </form>
   </div>
 
